@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: loggerdb
+    environment:
+      POSTGRES_DB: loggerdb
+      POSTGRES_USER: logger
+      POSTGRES_PASSWORD: logger
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
