@@ -1,10 +1,15 @@
 package com.logger.log;
 
 import com.logger.route.LogLevel;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public class LogRequest {
 
+    @NotNull
     private LogLevel level;
+
+    @NotBlank
     private String message;
     private String source;
 

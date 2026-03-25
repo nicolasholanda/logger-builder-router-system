@@ -9,6 +9,7 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,7 +30,7 @@ public class LogController {
 
     @PostMapping("/log")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void log(@RequestBody LogRequest request) {
+    public void log(@Valid @RequestBody LogRequest request) {
         engine.dispatch(request.getLevel(), request.getMessage(), request.getSource());
     }
 
